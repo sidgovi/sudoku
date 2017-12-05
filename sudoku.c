@@ -7,7 +7,8 @@
 #define GIT_COLOR_RESET		"\033[m"
 #define GIT_COLOR_GREEN		"\033[32m"
 
-const char usage_str[] = "\nsudoku-solver <PUZZLE>\n"
+const char usage_str[] = "usage: sudoku-solver <PUZZLE>\n\n"
+			 "./sudoku-solver 300200000000107000706030500070009080900020004010800050009040301000702000000008006\n\n"
 		     	 "The PUZZLE is a string of 81 digits\n"
 		     	 "with 0's representing the unknown numbers.";
 
@@ -86,7 +87,6 @@ static void init_avail(int board[9][9], int *n_row, int *n_col, int *n_square)
 
 static void usage()
 {
-	fprintf(stderr, "fatal: Invalid board\n");
 	printf("%s\n\n", usage_str); 
 	
 	exit(128);
@@ -98,7 +98,6 @@ int main(int argc, char *argv[])
 	static int board[9][9];
 
 	if (argc != 2 || strlen(argv[1]) != 81) {
-		printf("Board length != 81\n");
 		usage();
 	}
 
