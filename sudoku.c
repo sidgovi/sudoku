@@ -12,10 +12,6 @@ const char usage_str[] = "usage: sudoku-solver <PUZZLE>\n\n"
 		     	 "The PUZZLE is a string of 81 digits\n"
 		     	 "with 0's representing the unknown numbers.";
 
-static int n_row[9];
-static int n_col[9];
-static int n_square[9];
-
 static int get_square(int row, int col)
 {
 	return col/3 + 3*(row/3); 
@@ -95,7 +91,10 @@ static void usage()
 int main(int argc, char *argv[])
 {      
 
-	static int board[9][9];
+	int board[9][9];
+	int n_row[9];
+	int n_col[9];
+	int n_square[9];
 
 	if (argc != 2 || strlen(argv[1]) != 81) {
 		usage();
